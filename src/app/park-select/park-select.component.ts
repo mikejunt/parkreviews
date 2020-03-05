@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ParksService } from '../services/parks.service';
 import { Park } from '../interfaces/parks.interface';
-import { Observable } from 'rxjs';
+import * as Actions from '../store/actions'
+import { AppState } from '../store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-park-select',
@@ -10,15 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class ParkSelectComponent implements OnInit {
   parklist: Park[] = this.parks.parks
-  parkselect: string = "1"
+  parkselect: string
   
-  constructor(private parks: ParksService) { }
+  constructor(private parks: ParksService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
- logIt() {
-   console.log("This function would update the store with id of selected park:", this.parkselect)
+ logIt(val) {
+   this.store.dispatch(Actions.setSelectedPark({parkid: val}))
  }
 
 }

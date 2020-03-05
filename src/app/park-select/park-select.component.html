@@ -1,6 +1,6 @@
 <mat-form-field>
     <mat-label for="parkselect">Select Park:</mat-label>
-    <mat-select (ngModelChange)="logIt()" [(ngModel)]="parkselect">
+    <mat-select (ngModelChange)="logIt($event)" [(ngModel)]="parkselect">
         <mat-option *ngFor="let park of parklist" value="{{park.id}}">{{park.name}}</mat-option>
     </mat-select>
 </mat-form-field>
