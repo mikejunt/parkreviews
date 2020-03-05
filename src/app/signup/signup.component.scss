@@ -1,0 +1,35 @@
+body {
+    background-color: #434343;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25;
+    padding-top: 75px;
+    padding-bottom: 25px;
+}
+form{
+    width: 75%;
+    margin: auto;
+}
+.input{
+    width: 100%;
+    margin: 10px auto;
+}
+.left-button{
+    width: 50%;
+    cursor: pointer;
+    margin-right: 2px;
+    }
+.right-button{
+    width: 50%;
+    cursor: pointer;
+    margin-left: 2px;
+    }
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    }
