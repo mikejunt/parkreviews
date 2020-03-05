@@ -16,6 +16,12 @@ import { SignupComponent } from './signup/signup.component';
 import { ParkSelectComponent } from './park-select/park-select.component';
 import { NewReviewComponent } from './new-review/new-review.component';
 import { ParkSummaryComponent } from './park-summary/park-summary.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 
@@ -26,7 +32,7 @@ import { reducers, metaReducers } from './store';
     SignupComponent,
     ParkSelectComponent,
     NewReviewComponent,
-    ParkSummaryComponent
+    ParkSummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,11 @@ import { reducers, metaReducers } from './store';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
