@@ -1,41 +1,41 @@
 <body>
-    <form class = "signup-form" role="form" (ngSubmit)="signup($event)" [formGroup] = "signupForm">
-        <mat-form-field class = "input">
+    <form class="signup-form" role="form" (ngSubmit)="signup($event)" [formGroup]="signupForm">
+        <mat-form-field class="input">
             <input matInput formControlName="username" type="text" name="username" placeholder="Username">
             <mat-hint> Username must be between 3 and 16 characters </mat-hint>
-            <mat-error *ngIf="signupForm.controls.username.errors && (signupForm.controls.username.dirty || signupForm.controls.username.touched)">
+            <mat-error
+                *ngIf="signupForm.controls.username.errors && (signupForm.controls.username.dirty || signupForm.controls.username.touched)">
                 Invalid username - must be between 3 and 16 Characters
             </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field class="input">
-            <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-            </button>
-                <mat-hint>Password must be between 8 and 128 characters</mat-hint>
-                <mat-error *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
-                    Password must be 8 and 128 characters
-                </mat-error>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" name="password"
+                placeholder="Password">
+            <mat-hint>Password must be between 8 and 128 characters</mat-hint>
+            <mat-error
+                *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
+                Password must be 8 and 128 characters
+            </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field class="input">
-            <input matInput formControlName="confirm" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password" [errorStateMatcher]="matcher">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-            </button>
-                <mat-error *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
-                    Passwords don't match
-                </mat-error>
+            <input matInput formControlName="confirm" [type]="hide ? 'password' : 'text'" name="password"
+                placeholder="Confirm Password" [errorStateMatcher]="matcher">
+
+            <mat-error
+                *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
+                Passwords don't match
+            </mat-error>
         </mat-form-field>
         <br>
         <div class="flex-container">
-            <button class="login-button left-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signupForm.valid && !signupForm.touched">Sign Up</button>
-    
-            <button routerLink="/login"class="right-button" mat-raised-button>Cancel</button>
-            
-            </div>
-    
+            <button class="login-button left-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'"
+                [disabled]="!signupForm.valid && !signupForm.touched">Sign Up</button>
+
+            <button routerLink="/login" class="right-button" mat-raised-button>Cancel</button>
+
+        </div>
+
     </form>
-    </body>
-    
+</body>
