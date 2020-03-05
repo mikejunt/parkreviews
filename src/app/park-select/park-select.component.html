@@ -1,1 +1,6 @@
-<p>park-select works!</p>
+<mat-form-field>
+    <mat-label for="parkchoice">Select Park:</mat-label>
+    <mat-select [(ngModel)]="parkchoice">
+        <mat-option *ngFor="let park of parklist" value="park.id">{{park.name}}</mat-option>
+    </mat-select>
+</mat-form-field>
