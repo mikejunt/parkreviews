@@ -16,6 +16,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ParkSelectComponent } from './park-select/park-select.component';
 import { NewReviewComponent } from './new-review/new-review.component';
 import { ParkSummaryComponent } from './park-summary/park-summary.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,14 @@ import { ParkSummaryComponent } from './park-summary/park-summary.component';
     MatInputModule,
     MatToolbarModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

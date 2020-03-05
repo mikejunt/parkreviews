@@ -1,1 +1,19 @@
-<p>new-review works!</p>
+<mat-toolbar>New Review Screen</mat-toolbar>
+<div>
+    <app-park-select></app-park-select>
+</div>
+<div class="selects">
+    <mat-checkbox id="trails" [(ngModel)]="parkreview.trails">Hiking Trails</mat-checkbox>
+    <mat-checkbox id="pool" [(ngModel)]="parkreview.pool">Pool</mat-checkbox>
+    <mat-checkbox id="playground" [(ngModel)]="parkreview.playground">Playground</mat-checkbox>
+    <mat-checkbox id="volleyball" [(ngModel)]="parkreview.volleyball">Volleyball Court</mat-checkbox>
+</div>
+<div class="rating"><mat-label for="rating">Overall Rating</mat-label>
+    <mat-slider id="rating" [(ngModel)]="parkreview.rating" min="1" max="5" step="0.5" value="3" thumbLabel tickInterval="0.5">
+    </mat-slider>
+</div>
+<div class="comments">
+    <mat-form-field><textarea rows="5" cols="50" matInput [(ngModel)]="parkreview.comments"></textarea>
+    </mat-form-field>
+</div>
+<button mat-raised-button (click)="onSubmit()">Log It</button>
