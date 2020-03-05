@@ -20,7 +20,7 @@
         </mat-form-field>
         <br>
         <mat-form-field class="input">
-            <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password">
+            <input matInput formControlName="confirm" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password" [errorStateMatcher]="matcher">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
                 <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
             </button>
