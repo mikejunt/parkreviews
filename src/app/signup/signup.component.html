@@ -11,14 +11,23 @@
         <mat-form-field class="input">
             <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
             </button>
                 <mat-hint>Password must be between 8 and 128 characters</mat-hint>
                 <mat-error *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
                     Password must be 8 and 128 characters
                 </mat-error>
         </mat-form-field>
-    
+        <br>
+        <mat-form-field class="input">
+            <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
+                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+            </button>
+                <mat-error *ngIf="signupForm.controls.password.errors && (signupForm.controls.password.dirty || signupForm.controls.password.touched)">
+                    Passwords don't match
+                </mat-error>
+        </mat-form-field>
         <br>
         <div class="flex-container">
             <button class="login-button left-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signupForm.valid && !signupForm.touched">Sign Up</button>
