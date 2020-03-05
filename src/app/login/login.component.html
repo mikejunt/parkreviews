@@ -11,7 +11,7 @@
         <mat-form-field class="input">
             <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
             </button>
                 <mat-error *ngIf="loginForm.controls.password.errors && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
                     Password must be 8 and 128 characters
