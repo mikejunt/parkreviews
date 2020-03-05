@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import * as Actions from '../store/actions'
+import { Store } from '@ngrx/store';
+import { AppState } from '../store';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserService {
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   login(username, password){
     
@@ -17,13 +20,12 @@ export class UserService {
     //     localStorage.setItem("user", username);
     //     this.router.navigate([`/user`]);
     //     }return true
+    this.store.dispatch(Actions.setActiveUser({username}))
     console.log(username,password)
       }
 
   logout(){
-    // this.isLoggedIn = false;
-    // localStorage.clear();
-    // this.router.navigate(['/login'])
+    this.store.dispatch(Actions.clearActiveUser())
   }
   signup(username, password){
     let newuser = {
