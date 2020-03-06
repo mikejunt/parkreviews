@@ -26,6 +26,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatChipsModule} from '@angular/material/chips';
     ParkSelectComponent,
     NewReviewComponent,
     ParkSummaryComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
