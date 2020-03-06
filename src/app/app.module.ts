@@ -24,6 +24,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { reducers, metaReducers } from './store';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatChipsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
@@ -52,6 +56,7 @@ import { reducers, metaReducers } from './store';
     MatToolbarModule,
     MatSliderModule,
     MatButtonModule,
+    MatCardModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

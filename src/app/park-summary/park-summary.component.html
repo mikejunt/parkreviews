@@ -1,1 +1,15 @@
-<p>park-summary works!</p>
+<div *ngFor= "let review of reviews" >
+<mat-toolbar color="accent">{{review.authorid}} </mat-toolbar>
+
+<mat-chip-list aria-label="Fish selection">
+    <mat-chip *ngIf="review.trails" color="primary">Trails</mat-chip>
+    <mat-chip *ngIf="review.volleyball" color="primary">Volleyball</mat-chip>
+    <mat-chip *ngIf="review.pool" color="primary">Pool</mat-chip>
+    <mat-chip *ngIf="review.playground" color="primary"> Playground </mat-chip> 
+  </mat-chip-list>
+
+<div>
+{{review.comments}}
+
+</div>
+</div>
