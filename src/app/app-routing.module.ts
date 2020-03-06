@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup',  component: SignupComponent},
   {path: 'newreview', component: NewReviewComponent},
-  {path: 'parkreview', component: ParkSummaryComponent},
+  {path: 'parkreview/:id', component: ParkSummaryComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 

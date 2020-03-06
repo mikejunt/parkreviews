@@ -25,9 +25,6 @@ export class UserService {
         return { id, ...data }
       })
     }))
-    // let queryresult
-    // dbquery$.subscribe(res => {queryresult = res;console.log(res, "from observable")})
-    // return queryresult
     return dbquery$
   }
 
