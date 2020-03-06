@@ -5,28 +5,33 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private userList: AngularFirestoreCollection<any>
-  users$: Observable<any[]>
-  user
-  username: string = ""
-  loginsearch = this.db.collection('users', ref => ref.where('username', '==', this.username))
- 
-
+  userDB: AngularFirestoreCollection<any> = this.db.collection('users')
   constructor(private router: Router, private store: Store<AppState>, private db: AngularFirestore) {
-    this.userList = this.db.collection('users')
-    this.users$ = this.userList.valueChanges()
-    this.users$.subscribe(res => {this.user = res;console.log(res, "from observable")})
+    
+  }
+
+  userQuery(key: string, operator: firebase.firestore.WhereFilterOp, value: string) {
+    let dbquery:AngularFirestoreCollection<any> = this.db.collection('users', (ref)=> ref.where(key, operator, value))
+    let dbquery$ = dbquery.snapshotChanges().pipe(map(actions => {
+      return actions.map(x => {
+        const data = x.payload.doc.data();
+        const id = x.payload.doc.id;
+        return { id, ...data}  
+      })
+    }))
+    let queryresult
+    dbquery$.subscribe(res => {queryresult = res;console.log(res, "from observable")})
+    return queryresult
   }
 
   login(username, password){
-    let loginattempt
-    this.loginsearch.get().subscribe(res => loginattempt = res)
-    console.log(this.loginsearch, loginattempt, 'returned by loginattempt')
+    this.userQuery("username", "==", username)
     this.store.dispatch(Actions.setActiveUser({username}))
     console.log(username,password)
       }
@@ -38,7 +43,7 @@ export class UserService {
   signup(username, password){
     const id = this.db.createId()
     const user = {id: id, username: username, password: password}
-    this.userList.doc(id).set(user)
+    this.userDB.doc(id).set(user)
     console.log(user, "From signup function")
   }
   
