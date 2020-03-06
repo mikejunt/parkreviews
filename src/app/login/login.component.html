@@ -9,19 +9,16 @@
         </mat-form-field>
         <br>
         <mat-form-field class="input">
-            <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-                <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-            </button>
+            <input matInput formControlName="password" type="password" name = "password" placeholder = "Password">
                 <mat-error *ngIf="loginForm.controls.password.errors && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
                     Password must be 8 and 128 characters
                 </mat-error>
         </mat-form-field>
 
         <div class="flex-container">
-        <button routerLink="/user" class="login-button left-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Login</button>
+        <button class="login-button left-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Login</button>
 
-        <button routerLink="/signup"class="right-button" mat-raised-button>Sign Up</button>
+        <button class="right-button" mat-raised-button>Sign Up</button>
         </div>
 
     </form>
