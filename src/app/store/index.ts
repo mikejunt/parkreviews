@@ -11,12 +11,12 @@ import {
   
   export interface AppState {
         selectedpark: Reducers.ParkSelectState,
-        activeuser: Reducers.ActiveUserState
+        activeuserdata: Reducers.ActiveUserState
   }
   
   export const reducers: ActionReducerMap<AppState> = {
       selectedpark: Reducers.saveSelectedPark,
-      activeuser: Reducers.saveActiveUser
+      activeuserdata: Reducers.saveActiveUser
   }
   
   export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

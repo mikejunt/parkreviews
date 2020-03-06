@@ -13,10 +13,14 @@ import * as Selectors from '../store/selectors'
 })
 export class NewReviewComponent implements OnInit {
   selectedpark$: Observable<string>
-  selectedpark: string;
+  activeusername$: Observable<string>
+  activeuserid$: Observable<string>
+
 
   parkreview = {
-    chosenpark: "",
+    authorid: "",
+    authorname: "",
+    parkid: "",
     trails: false,
     playground: false,
     pool: false,
@@ -27,7 +31,11 @@ export class NewReviewComponent implements OnInit {
 
   constructor(private parks: ParksService, private reviews: ReviewService, private store: Store<AppState>) {
     this.selectedpark$ = this.store.select(Selectors.viewSelectedPark)
-    this.selectedpark$.subscribe(res => this.parkreview.chosenpark = res)
+    this.selectedpark$.subscribe(res => this.parkreview.parkid = res)
+    this.activeusername$ = this.store.select(Selectors.viewActiveUsername)
+    this.activeusername$.subscribe(res => this.parkreview.authorname = res)
+    this.activeuserid$ = this.store.select(Selectors.viewActiveUserID)
+    this.activeuserid$.subscribe(res => this.parkreview.authorid = res)
    }
 
   ngOnInit(): void {

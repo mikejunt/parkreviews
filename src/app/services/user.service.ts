@@ -6,6 +6,7 @@ import { AppState } from '../store';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map, tap, first } from 'rxjs/operators'
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,8 @@ export class UserService {
       if (res.length != 1) { console.log("No user with that name"); return false }
       // pwd hash?
       if (res["password"] != password) { console.log("Password doesn't match"); return false }
-      this.store.dispatch(Actions.setActiveUser({ username }))
+      let activeuser = {id: res["id"], username: res["username"], zipcode: "68134"}
+      this.store.dispatch(Actions.setActiveUser({ activeuser }))
       this.router.navigate(['/newreview'])
     })
   }
