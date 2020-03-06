@@ -13,7 +13,8 @@
     </mat-slider>
 </div>
 <div class="comments">
-    <mat-form-field><textarea rows="5" cols="50" matInput [(ngModel)]="parkreview.comments"></textarea>
+    <mat-form-field>
+        <textarea rows="5" cols="50" matInput [(ngModel)]="parkreview.comments"></textarea>
     </mat-form-field>
 </div>
 <button mat-raised-button (click)="onSubmit()">Log It</button>

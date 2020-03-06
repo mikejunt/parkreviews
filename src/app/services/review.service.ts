@@ -13,7 +13,7 @@ export class ReviewService {
   ngOnInit() {
   }
 
-  userQuery(key: string, operator: firebase.firestore.WhereFilterOp, value: string) {
+  reviewQuery(key: string, operator: firebase.firestore.WhereFilterOp, value: string) {
     let dbquery: AngularFirestoreCollection<any> = this.db.collection('reviews', (ref) => ref.where(key, operator, value))
     let dbquery$ = dbquery.snapshotChanges().pipe(map(actions => {
       return actions.map(x => {
