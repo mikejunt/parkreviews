@@ -1,4 +1,9 @@
-<mat-toolbar>New Review Screen</mat-toolbar>
+
+
+<body>
+<img src="assets/parklogo.png">
+<mat-form-field appearance="fill">
+
 <div>
     <app-park-select></app-park-select>
 </div>
@@ -13,8 +18,10 @@
     </mat-slider>
 </div>
 <div class="comments">
-    <mat-form-field>
-        <textarea rows="5" cols="50" matInput [(ngModel)]="parkreview.comments"></textarea>
+    <mat-form-field class = "reviewbox">
+        <textarea matInput [(ngModel)]="parkreview.comments"></textarea>
     </mat-form-field>
 </div>
 <button mat-raised-button (click)="onSubmit()">Log It</button>
+</mat-form-field>
+</body>
