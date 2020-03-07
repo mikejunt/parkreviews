@@ -22,9 +22,11 @@ export class DataService {
     return dbquery$
   }
 
-  dataSave(collection: string, document: Object, options?: firebase.firestore.SetOptions) {
+  dataSave(collection: string, document: Object, options?: firebase.firestore.SetOptions, setid?: string) {
     const database: AngularFirestoreCollection<any> = this.db.collection(collection)
-    const id = this.db.createId()
+    let id
+    if (setid) { id = setid }
+    else { id = this.db.createId()}
     const doc = { ...document, id: id }
     if (options) { database.doc(id).set(doc, options) }
     else { database.doc(id).set(doc) }
