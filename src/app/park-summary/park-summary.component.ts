@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewService } from '../services/review.service';
-import {  Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-park-summary',
@@ -9,35 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./park-summary.component.scss']
 })
 
-
-
-
 export class ParkSummaryComponent implements OnInit {
-
-  
-  constructor(private reviewService: ReviewService, private actr: ActivatedRoute) { }
-
-  log(){
-    console.log(this.reviews);
-  }
-
-
   reviews: Array<any>;
+  
+  constructor(private data: DataService, private actr: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.actr.snapshot.params.id);
-    this.reviewService.reviewQuery('parkid', '==', `${this.actr.snapshot.params.id}`).subscribe(data => {console.log(data);this.reviews = data});
+    let park: string = this.actr.snapshot.params.id
+    console.log(park)
+    this.data.dataQuery('reviews','parkid', '==', park)
+    .subscribe(res => {console.log(res);this.reviews = res});
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-//inject service and activated route//define observable variable(review$ and the variable that holds the data that comes from  observable)
