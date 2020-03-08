@@ -15,7 +15,6 @@ export class ParkSummaryComponent implements OnInit {
 
   ngOnInit() {
     let park: string = this.actr.snapshot.params.id
-    console.log(park)
     this.data.dataQuery('reviews','parkid', '==', park)
     .subscribe(res => {console.log(res);this.reviews = res});
   }

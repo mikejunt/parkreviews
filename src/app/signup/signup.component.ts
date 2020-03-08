@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
 import { CrossFieldMatcher } from '../shared/crossfield.matcher';
 import { passwordMatchValidator } from '../shared/password-match.validator'
 
@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
 
   signup(e){
     e.preventDefault();
-    console.log(this.signupForm.valid)
+
     if(this.signupForm.valid){
       this.userService.signup(this.signupForm.value.username, this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.zip);
     }
