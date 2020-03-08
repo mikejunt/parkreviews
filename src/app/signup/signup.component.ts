@@ -14,6 +14,8 @@ export class SignupComponent implements OnInit {
     username: ['', Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(4)])],
     password: ['', Validators.compose([Validators.required, Validators.maxLength(32), Validators.minLength(6)])],
     confirm: [''],
+    email: ['', Validators.compose([Validators.required, Validators.maxLength(32), Validators.minLength(3)])],
+    zip: ['', Validators.compose([Validators.required, Validators.maxLength(5), Validators.minLength(5)])]
   }, { validator: passwordMatchValidator })
   matcher: CrossFieldMatcher
   hide: boolean = true;
@@ -24,7 +26,7 @@ export class SignupComponent implements OnInit {
     e.preventDefault();
     console.log(this.signupForm.valid)
     if(this.signupForm.valid){
-      this.userService.signup(this.signupForm.value.username, this.signupForm.value.password);
+      this.userService.signup(this.signupForm.value.username, this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.zip);
     }
   }
   ngOnInit(): void { }

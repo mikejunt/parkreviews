@@ -29,6 +29,22 @@
             </mat-error>
         </mat-form-field>
         <br>
+        <mat-form-field class="input">
+            <input matInput formControlName="email" type="text" name="email" placeholder="email">
+            <mat-hint> Email address error not set</mat-hint>
+            <mat-error
+                *ngIf="signupForm.controls.username.errors && (signupForm.controls.username.dirty || signupForm.controls.username.touched)">
+                Invalid username - must be between 3 and 16 Characters
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <input matInput formControlName="zip" type="text" name="zip" placeholder="zip">
+            <mat-hint> zip code error not set</mat-hint>
+            <mat-error
+                *ngIf="signupForm.controls.username.errors && (signupForm.controls.username.dirty || signupForm.controls.username.touched)">
+                Invalid username - must be between 3 and 16 Characters
+            </mat-error>
+        </mat-form-field>
         <div class="flex-container">
             <button class="login-button left-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'"
                 [disabled]="!signupForm.valid && !signupForm.touched">Sign Up</button>
