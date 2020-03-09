@@ -24,8 +24,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 import { LandingComponent } from './landing/landing.component';
 
 
@@ -59,6 +60,7 @@ import { LandingComponent } from './landing/landing.component';
     MatSliderModule,
     MatButtonModule,
     MatCardModule,
+    MatMenuModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

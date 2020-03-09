@@ -1,0 +1,9 @@
+.toolbar-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.toolbar-item {
+    flex: 0 0 auto;
+}

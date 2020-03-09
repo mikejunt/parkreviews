@@ -1,3 +1,13 @@
+<mat-toolbar color="primary" class="row m-0 toolbar-flex">
+  <div class="toolbar-item"><span class="pr-3">Read Reviews</span><button mat-button [matMenuTriggerFor]="parkmenu">Choose Park</button>
+    <mat-menu #parkmenu="matMenu">
+        <button *ngFor="let park of parklist" mat-menu-item (click)="navigate('parkreview/' + park.id)">{{park.name}}</button>
+    </mat-menu></div>
+  <div class="toolbar-item"><span class="pr-3">Want to Review?</span><button mat-flat-button
+      color="accent" (click)="navigate('login')">Login!</button></div>
+</mat-toolbar>
+
+
 <div class="review-container row m-0">
   <div *ngFor="let review of reviews" class="col-12 col-md-6 p-2 p-md-3">
     <div class="review-panel">
