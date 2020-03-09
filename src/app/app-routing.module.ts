@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'signup',  component: SignupComponent},
   {path: 'newreview', component: NewReviewComponent},
   {path: 'parkreview/:id', component: ParkSummaryComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path: '', redirectTo: 'parkreview/1', pathMatch: 'full' },
 ];
 
 @NgModule({

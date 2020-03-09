@@ -1,8 +1,9 @@
-
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
+@import './app/shared/review-display-card.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -241,9 +242,11 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 // Theme Init
 @include angular-material-theme($theme);
+@include review-card-theme($theme);
 
 .theme-alternate {
   @include angular-material-theme($altTheme);
+  @include review-card-theme($altTheme);
 }
 
 

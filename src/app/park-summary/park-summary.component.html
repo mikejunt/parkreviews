@@ -1,10 +1,15 @@
-<div *ngFor="let review of reviews">
-  <mat-toolbar color="accent">{{review.authorid}}</mat-toolbar>
-  <mat-chip-list aria-label="Fish selection">
-    <mat-chip *ngIf="review.trails" color="primary">Trails</mat-chip>
-    <mat-chip *ngIf="review.volleyball" color="primary">Volleyball</mat-chip>
-    <mat-chip *ngIf="review.pool" color="primary">Pool</mat-chip>
-    <mat-chip *ngIf="review.playground" color="primary"> Playground </mat-chip>
-  </mat-chip-list>
-  <div>{{review.comments}}</div>
-</div>
+<div class="review-container row m-0">
+  <div *ngFor="let review of reviews" class="col-12 col-md-6 p-2 p-md-3">
+    <div class="review-panel">
+      <div class="review-header">{{review.parkid}} by {{review.authorid}}</div>
+      <div class="p-2">
+        <mat-chip-list aria-label="park-features">
+          <mat-chip *ngIf="review.trails" selected color="accent">Trails</mat-chip>
+          <mat-chip *ngIf="review.volleyball" selected color="accent">Volleyball</mat-chip>
+          <mat-chip *ngIf="review.pool" selected color="accent">Pool</mat-chip>
+          <mat-chip *ngIf="review.playground" selected color="accent"> Playground </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div>{{review.comments}}</div>
+    </div>
+  </div>
